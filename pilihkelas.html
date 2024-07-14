@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilih Kelas</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body style="background: url('images/bg4.png') no-repeat center center fixed; background-size: cover;">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/buku.png" alt="Logo" class="navbar-logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="container">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pilihkelas.html">Kelas</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <!-- Main Content -->
+  <div class="content-wrapper">
+    <h2>Silahkan Pilih Kelas</h2>
+    <div class="container">
+      <div class="clickable-box" onclick="boxClicked(1)">
+        <img src="images/Kelas1.jpg" alt="Kelas 1">
+        <p>Kelas 1</p>
+      </div>
+      <div class="clickable-box" onclick="boxClicked(2)">
+        <img src="images/Kelas2.jpg" alt="Kelas 2">
+        <p>Kelas 2</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function boxClicked(classNumber) {
+      // Redirect to the appropriate HTML page based on classNumber
+      if (classNumber === 1) {
+        window.location.href = 'alphabet.html';
+      } else if (classNumber === 2) {
+        window.location.href = 'kuiz.html';
+      }
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

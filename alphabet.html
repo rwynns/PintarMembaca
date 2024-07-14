@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alphabet Sounds</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body style="background: url('images/bg2.png') no-repeat center center fixed; background-size: cover; margin: 0; padding: 0; overflow: hidden;">
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/buku.png" alt="Logo" class="navbar-logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="container">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pilihkelas.html">Kelas</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="content-wrapper">
+    <h2>Alphabet Sounds</h2>
+    <div class="container">
+      <!-- Gambar Alphabet -->
+      <div class="row">
+        <!-- Loop untuk alfabet A sampai Z -->
+        <script>
+          const alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          alphabets.split('').forEach(letter => {
+            document.write(`
+              <div class="col-2">
+                <div class="clickable-box" onclick="playSound('${letter}')">
+                  <img src="images/Alphabet/${letter}.png" alt="${letter}">
+                </div>
+                <audio id="audio-${letter}" src="sounds/alphabet/${letter}.mp3"></audio>
+              </div>
+            `);
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function playSound(letter) {
+      const audio = document.getElementById(`audio-${letter}`);
+      audio.play();
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

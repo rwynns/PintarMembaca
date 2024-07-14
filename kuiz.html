@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabel Cocokkan Gambar</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+    .table td {
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .table img {
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+<body style="background: url('images/bg4.png') no-repeat center center fixed; background-size: cover; margin: 0; padding: 0; overflow: hidden;">
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/buku.png" alt="Logo" class="navbar-logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="container">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pilihkelas.html">Kelas</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="content-wrapper">
+    <h2>Cocokkan Gambar</h2>
+    <div class="container">
+      <table class="table table-bordered">
+        <tr>
+          <td><img src="images/kuiz/ban.png" alt="Image 1"></td>
+          <td><img src="images/kuiz/jam.png" alt="Image 2"></td>
+          <td><img src="images/kuiz/tas.png" alt="Image 3"></td>
+          <td><img src="images/kuiz/kol.png" alt="Image 4"></td>
+          <td><img src="images/kuiz/pot.png" alt="Image 5"></td>
+          <td><img src="images/kuiz/bom.png" alt="Image 6"></td>
+          <td><img src="images/kuiz/rok.png" alt="Image 7"></td>
+        </tr>
+        <tr>
+          <td onclick="checkMatch(this, 'ban.png', 'sounds/kuiz/Ban.mp3')"><img src="images/kuiz/jawaban/ban.png" alt="Image 1"></td>
+          <td onclick="checkMatch(this, 'jam.png', 'sounds/kuiz/Jan.mp3')"><img src="images/kuiz/jawaban/jan.png" alt="Image 2"></td>
+          <td onclick="checkMatch(this, 'tas.png', 'sounds/kuiz/Tas.mp3')"><img src="images/kuiz/jawaban/tas.png" alt="Image 3"></td>
+          <td onclick="checkMatch(this, 'kol.png', 'sounds/kuiz/Kol.mp3')"><img src="images/kuiz/jawaban/kol.png" alt="Image 4"></td>
+          <td onclick="checkMatch(this, 'pot.png', 'sounds/kuiz/Pol.mp3')"><img src="images/kuiz/jawaban/pol.png" alt="Image 5"></td>
+          <td onclick="checkMatch(this, 'bom.png', 'sounds/kuiz/Bom.mp3')"><img src="images/kuiz/jawaban/bom.png" alt="Image 6"></td>
+          <td onclick="checkMatch(this, 'rok.png', 'sounds/kuiz/Rok.mp3')"><img src="images/kuiz/jawaban/rok.png" alt="Image 7"></td>
+        </tr>
+        <tr>
+          <td onclick="checkMatch(this, 'ban.png', 'sounds/kuiz/Bal.mp3')"><img src="images/kuiz/jawaban/bal.png" alt="Image 1"></td>
+          <td onclick="checkMatch(this, 'jam.png', 'sounds/kuiz/Jam.mp3')"><img src="images/kuiz/jawaban/jam.png" alt="Image 2"></td>
+          <td onclick="checkMatch(this, 'tas.png', 'sounds/kuiz/Tar.mp3')"><img src="images/kuiz/jawaban/tar.png" alt="Image 3"></td>
+          <td onclick="checkMatch(this, 'kol.png', 'sounds/kuiz/Kos.mp3')"><img src="images/kuiz/jawaban/kos.png" alt="Image 4"></td>
+          <td onclick="checkMatch(this, 'pot.png', 'sounds/kuiz/Pot.mp3')"><img src="images/kuiz/jawaban/pot.png" alt="Image 5"></td>
+          <td onclick="checkMatch(this, 'bom.png', 'sounds/kuiz/Bot.mp3')"><img src="images/kuiz/jawaban/bot.png" alt="Image 6"></td>
+          <td onclick="checkMatch(this, 'rok.png', 'sounds/kuiz/rot.mp3')"><img src="images/kuiz/jawaban/rot.png" alt="Image 7"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function checkMatch(cell, correctImage, soundFile) {
+      const img = cell.querySelector('img');
+      if (img.src.includes(correctImage)) {
+        cell.style.backgroundColor = 'green';
+      } else {
+        cell.style.backgroundColor = 'red';
+      }
+
+      const audio = new Audio(soundFile);
+      audio.play();
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
