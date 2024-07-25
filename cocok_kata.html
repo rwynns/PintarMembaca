@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Suku Kata</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body body style="background: url('images/bg2.png') no-repeat center center fixed; background-size: cover; margin: 0; padding: 0; overflow: hidden;">
+
+    <div class="content-wrapper">
+        <h1>Drag and Drop Suku Kata</h1>
+        <h2>Silakan Cocokkan Suku Kata dengan Gambar</h2>
+        
+        <div class="container">
+            <div class="item">
+                <img src="images/item_syllables/dice.png" alt="Dice" class="item-image">
+                <div class="syllable" data-match="du" style="font-size: xx-large; font-weight: 600;">DA</div>
+            </div>
+            <div class="item">
+                <img src="images/item_syllables/bread.png" alt="Bread" class="item-image">
+                <div class="syllable" data-match="ti" style="font-size: xx-large; font-weight: 600;">RO</div>
+            </div>
+            <div class="item">
+                <img src="images/item_syllables/eye.png" alt="Eye" class="item-image">
+                <div class="syllable" data-match="ta" style="font-size: xx-large; font-weight: 600;">MA</div>
+            </div>
+            <div class="item">
+                <img src="images/item_syllables/teapot.png" alt="Teapot" class="item-image">
+                <div class="syllable" data-match="ko" style="font-size: xx-large; font-weight: 600;">TE</div>
+            </div>
+            <div class="item">
+                <img src="images/item_syllables/cheese.png" alt="Cheese" class="item-image">
+                <div class="syllable" data-match="ju" style="font-size: xx-large; font-weight: 600;">KE</div>
+            </div>
+            <div class="item">
+                <img src="images/item_syllables/ball.png" alt="Ball" class="item-image">
+                <div class="syllable" data-match="la" style="font-size: xx-large; font-weight: 600;">BO</div>
+            </div>
+        </div>
+
+        <div class="syllables">
+            <div class="syllable" draggable="true" id="ti">TI</div>
+            <div class="syllable" draggable="true" id="du">DU</div>
+            <div class="syllable" draggable="true" id="ta">TA</div>
+            <div class="syllable" draggable="true" id="la">LA</div>
+            <div class="syllable" draggable="true" id="ju">JU</div>
+            <div class="syllable" draggable="true" id="ko">KO</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const syllables = document.querySelectorAll('.syllables .syllable');
+    const targets = document.querySelectorAll('.container .syllable');
+
+    syllables.forEach(syllable => {
+        syllable.addEventListener('dragstart', dragStart);
+        syllable.addEventListener('dragend', dragEnd);
+    });
+
+    targets.forEach(target => {
+        target.addEventListener('dragover', dragOver);
+        target.addEventListener('drop', drop);
+    });
+
+    function dragStart(e) {
+        e.dataTransfer.setData('text/plain', e.target.id);
+        setTimeout(() => {
+            e.target.classList.add('dragging');
+        }, 0);
+    }
+
+    function dragEnd(e) {
+        e.target.classList.remove('dragging');
+    }
+
+    function dragOver(e) {
+        e.preventDefault();
+    }
+
+    function drop(e) {
+        e.preventDefault();
+        const id = e.dataTransfer.getData('text/plain');
+        const draggedElement = document.getElementById(id);
+        const match = this.getAttribute('data-match');
+
+        if (id.startsWith(match)) {
+            if (!this.querySelector(`#${id}`)) {
+                this.appendChild(draggedElement);
+            }
+        }
+    }
+});
+    </script>
+</body>
+</html>
